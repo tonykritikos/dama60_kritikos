@@ -1,0 +1,116 @@
+rank;Mountain name(s);Height_m;Height_ft;Prominence_m;Prominence_ft;Range;latitude;longitude;Parent mountain;ascents_first;ascents_before_2004_successful;ascents_before_2004_unsuccessful;country
+1;Mount Everest Sagarmath Chomolungma;8848.86;29031.7;8848;29029;Mahalangur Himalaya;27.98805556;86.92527778;-;1953;145;121;Nepal China
+2;K2;8611;28251;4020;13190;Baltoro Karakoram;35.88138889;76.51333333;Mount Everest;1954;45;44;Pakistan China
+3;Kangchenjunga;8586;28169;3922;12867;Kangchenjunga Himalaya;27.70333333;88.1475;Mount Everest;1955;38;24;Nepal India
+4;Lhotse;8516;27940;610;2000;Mahalangur Himalaya;27.96166667;86.93305556;Mount Everest;1956;26;26;Nepal China
+5;Makalu;8485;27838;2378;7802;Mahalangur Himalaya;27.88972222;87.08888889;Mount Everest;1955;45;-;Nepal China
+6;Cho Oyu;8188;26864;2340;7680;Mahalangur Himalaya;28.09416667;86.66083333;Mount Everest;1954;79;28;Nepal China
+7;Dhaulagiri I;8167;26795;3357;11014;Dhaulagiri Himalaya;28.69666667;83.49305556;K2;1960;51;39;Nepal
+8;Manaslu;8163;26781;3092;10144;Manaslu Himalaya;28.55;84.55972222;Cho Oyu;1956;49;45;Nepal
+9;Nanga Parbat;8126;26660;4608;15118;Nanga Parbat Himalaya;35.23722222;74.58916667;Dhaulagiri;1953;52;67;Pakistan
+10;Annapurna I;8091;26545;2984;9790;Annapurna Himalaya;28.59555556;83.82027778;Cho Oyu;1950;97;88;Nepal
+11;Gasherbrum I Hidden Peak K5;8080;26510;2155;7070;Baltoro Karakoram;35.72444444;76.69638889;K2;1958;31;16;Pakistan China
+12;Broad Peak;8051;26414;1701;5581;Baltoro Karakoram;35.81055556;76.56833333;Gasherbrum I;1957;39;19;Pakistan China
+13;Gasherbrum II K4;8035;26362;1524;5000;Baltoro Karakoram;35.75777778;76.65333333;Gasherbrum I;1956;54;12;Pakistan China
+14;Shishapangma Gosainthan;8027;26335;2897;9505;Jugal Himalaya;28.35333333;85.77861111;Cho Oyu;1964;43;19;China
+15;Gyachung Kang;7952;26089;672;2205;Mahalangur Himalaya;28.09805556;86.745;Cho Oyu;1964;5;3;Nepal China
+16;Gasherbrum III K3a;7946;26070;355;1165;Baltoro Karakoram;35.75916667;76.64166667;Gasherbrum II;1975;2;2;Pakistan China
+17;Annapurna II;7937;26040;2437;7995;Annapurna Himalaya;28.53472222;84.12194444;Annapurna I;1960;6;19;Nepal
+18;Gasherbrum IV K3;7932;26024;712;2336;Baltoro Karakoram;35.76055556;76.61611111;Gasherbrum III;1958;4;11;Pakistan
+19;Himalchuli;7893;25896;1633;5358;Manaslu Himalaya;28.43666667;84.63972222;Manaslu;1960;6;12;Nepal
+20;Distaghil Sar;7884;25866;2525;8284;Hispar Karakoram;36.32583333;75.18777778;K2;1960;3;5;Pakistan
+21;Ngadi Chuli;7871;25823;1011;3317;Manaslu Himalaya;28.50333333;84.56666667;Manaslu;1979;1;6;Nepal
+22;Nuptse;7864;25801;305;1001;Mahalangur Himalaya;27.9675;86.88694444;Lhotse;1961;5;12;Nepal
+23;Khunyang Chhish;7823;25666;1765;5791;Hispar Karakoram;36.20527778;75.20777778;Distaghil Sar;1971;2;6;Pakistan
+24;Masherbrum K1;7821;25659;2457;8061;Masherbrum Karakoram;35.64111111;76.30583333;Gasherbrum I;1960;4;9;Pakistan
+25;Nanda Devi;7816;25643;3139;10299;Garhwal Himalaya;30.37583333;79.97083333;Dhaulagiri;1936;14;12;India
+26;Chomo Lonzo;7804;25604;590;1940;Mahalangur Himalaya;27.93055556;87.10777778;Makalu;1954;3;1;China
+27;Batura Sar;7795;25574;3118;10230;Batura Karakoram;36.51027778;74.5225;Distaghil Sar;1976;4;6;Pakistan
+28;Rakaposhi;7788;25551;2818;9245;Rakaposhi-Haramosh Karakoram;36.1425;74.48944444;Khunyang Chhish;1958;8;13;Pakistan
+29;Kanjut Sar;7760;25460;1660;5450;Hispar Karakoram;36.20555556;75.41694444;Khunyang Chhish;1959;2;1;Pakistan
+30;Kamet;7756;25446;2825;9268;Garhwal Himalaya;30.92;79.59166667;Nanda Devi;1931;23;14;India
+31;Dhaulagiri II;7751;25430;2397;7864;Dhaulagiri Himalaya;28.76277778;83.38833333;Dhaulagiri;1971;4;11;Nepal
+32;Saltoro Kangri K10;7742;25400;2160;7090;Saltoro Karakoram;35.39916667;76.84805556;Gasherbrum I;1962;2;1;India Pakistan
+33;Kumbhakarna Jannu;7711;25299;1036;3399;Kangchenjunga Himalaya;27.68222222;88.04444444;Kangchenjunga;1962;17;12;Nepal
+34;Tirich Mir;7708;25289;3910;12830;Hindu Kush;36.25527778;71.84166667;Batura Sar;1950;20;11;Pakistan
+35;Molamenqing;7703;25272;433;1421;Langtang Himalaya;28.355;85.80972222;Shishapangma;1981;1;0;China
+36;Gurla Mandhata;7694;25243;2788;9147;Nalakankar Himalaya;30.43861111;81.29666667;Dhaulagiri;1985;6;4;China
+37;Saser Kangri I K22;7672;25171;2304;7559;Saser Karakoram;34.86666667;77.7525;Gasherbrum I;1973;6;4;India
+38;Chogolisa;7665;25148;1624;5328;Masherbrum Karakoram;35.61305556;76.57472222;Gasherbrum I;1975;4;2;Pakistan
+39;Dhaulagiri IV;7661;25135;469;1539;Dhaulagiri Himalaya;28.73583333;83.31527778;Dhaulagiri II;1975;2;10;Nepal
+40;Kongur Tagh;7649;25095;3585;11762;Kongur Shan (Eastern Pamirs);38.59333333;75.31333333;Distaghil Sar;1981;2;4;China
+41;Dhaulagiri V;7618;24993;340;1120;Dhaulagiri Himalaya;28.73388889;83.36138889;Dhaulagiri IV;1975;2;3;Nepal
+42;Shispare;7611;24970;1240;4070;Batura Karakoram;36.44055556;74.68083333;Batura Sar;1974;3;1;Pakistan
+43;Trivor;7577;24859;997;3271;Hispar Karakoram;36.2875;75.085;Distaghil Sar;1960;2;5;Pakistan
+44;Gangkhar Puensum;7570;24840;2995;9826;Kula Kangri Himalaya;28.04722222;90.45527778;Kangchenjunga;unclimbed;0;3;Bhutan China
+45;Annapurna III;7555;24787;703;2306;Annapurna Himalaya;28.585;83.99;Annapurna I;1961;10;17;Nepal
+46;Skyang Kangri;7545;24754;1085;3560;Baltoro Karakoram;35.92638889;76.5675;K2;1976;1;2;Pakistan China
+47;Changtse;7543;24747;514;1686;Mahalangur Himalaya;28.02472222;86.91416667;Mount Everest;1982;9;9;China
+48;Kula Kangri;7538;24731;1654;5427;Kula Kangri Himalaya;28.22694444;90.61638889;Gangkhar Puensum;1986;3;2;China Bhutan
+49;Kongur Tiube;7530;24700;840;2760;Kongur Shan (Eastern Pamirs);38.61583333;75.19583333;Kongur Tagh;1956;2;3;China
+50;Annapurna IV;7525;24688;255;837;Annapurna Himalaya;28.5375;84.08277778;Annapurna;1955;43;18;Nepal
+51;Mamostong Kangri;7516;24659;1803;5915;Rimo Karakoram;35.14194444;77.5775;Gasherbrum I;1984;5;0;India
+52;Saser Kangri II E;7513;24649;1458;4783;Saser Karakoram;34.80472222;77.80666667;Saser Kangri I;2011;0;0;India
+53;Muztagh Ata;7509;24636;2698;8852;Muztagata (Eastern Pamirs);38.27583333;75.11611111;Kongur Tagh;1956;many;-;China
+54;Saser Kangri III;7495;24590;835;2740;Saser Karakoram;34.84555556;77.785;Saser Kangri I;1986;1;0;India
+55;Noshaq;7492;24580;2024;6640;Hindu Kush;36.43222222;71.82861111;Tirich Mir;1960;33;3;Afghanistan Pakistan
+56;Pumari Chhish;7492;24580;884;2900;Hispar Karakoram;36.21138889;75.25027778;Khunyang Chhish;1979;1;2;Pakistan
+57;Passu Sar;7476;24528;647;2123;Batura Karakoram;36.48777778;74.58777778;Batura Sar;1994;1;0;Pakistan
+58;Yukshin Gardan Sar;7469;24505;1374;4508;Hispar Karakoram;36.25111111;75.37472222;Pumari Chhish;1984;4;1;Pakistan
+59;Teram Kangri I;7462;24482;1703;5587;Siachen Karakoram;35.58;77.07833333;Gasherbrum I;1975;2;0;India China
+60;Jongsong Peak;7462;24482;1298;4259;Kangchenjunga Himalaya;27.88166667;88.13583333;Kangchenjunga;1930;2;3;India China Nepal
+61;Malubiting;7458;24469;2193;7195;Rakaposhi-Haramosh Karakoram;36.00333333;74.87527778;Rakaposhi;1971;2;6;Pakistan
+62;Gangapurna;7455;24459;563;1847;Annapurna Himalaya;28.605;83.96361111;Annapurna III;1965;8;13;Nepal
+63;Sunanda Devi Nanda Devi East;7434;24390;229;751;Garhwal Himalaya;30.36666667;79.99444444;Nanda Devi;1939;14;12;India
+64;K12;7428;24370;1978;6490;Saltoro Karakoram;35.29583333;77.02222222;Saltoro Kangri;1974;4;2;India Pakistan
+65;Yangra Ganesh I;7422;24350;2352;7717;Ganesh Himalaya;28.39138889;85.12722222;Shishapangma;1955;1;6;Nepal China
+66;Sia Kangri;7422;24350;642;2106;Siachen Karakoram;35.66333333;76.76166667;Gasherbrum I;1934;6;0;Pakistan India China
+67;Momhil Sar;7414;24324;907;2976;Hispar Karakoram;36.31777778;75.03638889;Trivor;1964;2;6;Pakistan
+68;Kabru N;7412;24318;720;2360;Kangchenjunga Himalaya;27.63388889;88.11666667;Kangchenjunga;1994;1;2;India Nepal
+69;Skil Brum;7410;24310;1152;3780;Baltoro Karakoram;35.85083333;76.42861111;K2;1957;2;1;Pakistan
+70;Haramosh Peak;7409;24308;2277;7470;Rakaposhi-Haramosh Karakoram;35.84;74.8975;Malubiting;1958;4;3;Pakistan
+71;Istor-o-Nal;7403;24288;1043;3422;Hindu Kush;36.37555556;71.89833333;Noshaq;1969;4;5;Pakistan
+72;Ghent Kangri;7401;24281;1493;4898;Saltoro Karakoram;35.51777778;76.80055556;Saltoro Kangri;1961;4;0;India Pakistan
+73;Ultar;7388;24239;688;2257;Batura Karakoram;36.39083333;74.71666667;Shispare;1996;2;5;Pakistan
+74;Rimo I;7385;24229;1428;4685;Rimo Karakoram;35.355;77.36888889;Teram Kangri I;1988;1;3;India
+75;Churen Himal;7385;24229;650;2130;Dhaulagiri Himalaya;28.73472222;83.2175;Dhaulagiri IV;1970;3;0;Nepal
+76;Teram Kangri III;7382;24219;520;1710;Siachen Karakoram;35.59972222;77.04805556;Teram Kangri I;1979;1;0;India China
+77;Sherpi Kangri;7380;24210;1320;4330;Saltoro Karakoram;35.46611111;76.78138889;Ghent Kangri;1976;1;1;India Pakistan
+78;Labuche Kang;7367;24170;1957;6421;Labuche Himalaya;28.30416667;86.35083333;Cho Oyu;1987;1;0;China
+79;Kirat Chuli;7362;24154;1168;3832;Kangchenjunga Himalaya;27.78777778;88.19527778;Kangchenjunga;1939;1;6;India Nepal
+80;Abi Gamin;7355;24131;217;712;Garhwal Himalaya;30.9325;79.6025;Kamet;1950;17;2;India China
+81;Gimmigela Chuli The Twins;7350;24110;432;1417;Kangchenjunga Himalaya;27.74083333;88.15861111;Kangchenjunga;1994;3;1;India Nepal
+82;Nangpai Gosum;7350;24110;427;1401;Mahalangur Himalaya;28.07333333;86.61416667;Cho Oyu;1986;;1;Nepal China
+83;Saraghrar;7349;24111;1979;6493;Hindu Kush;36.5475;72.115;Noshaq;1959;2;3;Pakistan
+84;Talung;7349;24111;366;1201;Kangchenjunga Himalaya;27.655;88.13083333;Kabru;1964;3;4;Nepal India
+85;Jomolhari Chomo Lhari;7326;24035;2341;7680;Jomolhari Himalaya;27.82666667;89.26777778;Gangkhar Puensum;1937;4;0;Bhutan China
+86;Chamlang;7321;24019;1241;4072;Mahalangur Himalaya;27.775;86.97972222;Lhotse;1961;7;1;Nepal
+87;Chongtar;7315;23999;1295;4249;Baltoro Karakoram;35.91527778;76.42916667;Skil Brum;1994;1;1;China
+88;Baltoro Kangri;7312;23990;1140;3740;Masherbrum Karakoram;35.63916667;76.67333333;Chogolisa;1963;1;0;Pakistan
+89;Siguang Ri;7309;23980;669;2195;Mahalangur Himalaya;28.14722222;86.685;Cho Oyu;1989;2;1;China
+90;The Crown Huang Guan Shan;7295;23934;1919;6296;Yengisogat Karakoram;36.10666667;76.20583333;Skil Brum (K2);1993;1;5;China
+91;Porong Ri;7292;23924;512;1680;Langtang Himalaya;28.38944444;85.72;Shishapangma;1982;5;0;China
+92;Baintha Brakk The Ogre;7285;23901;1891;6204;Panmah Karakoram;35.9475;75.75333333;Kanjut Sar;1977;3;13;Pakistan
+93;Yutmaru Sar;7283;23894;680;2230;Hispar Karakoram;36.22638889;75.36722222;Yukshin Gardan Sar;1980;1;1;Pakistan
+94;K6 Baltistan Peak;7282;23891;1962;6437;Masherbrum Karakoram;35.41833333;76.55166667;Chogolisa;1970;1;3;Pakistan
+95;Kangpenqing Gang Benchhen;7281;23888;1345;4413;Baiku Himalaya;28.55083333;85.54555556;Shishapangma;1982;1;1;China
+96;Muztagh Tower;7276;23871;1710;5610;Baltoro Karakoram;35.82777778;76.36111111;Skil Brum;1956;4;2;Pakistan China
+97;Mana Peak;7272;23858;732;2402;Garhwal Himalaya;30.88055556;79.61527778;Kamet;1937;7;3;India
+98;Dhaulagiri VI;7268;23845;488;1601;Dhaulagiri Himalaya;28.70861111;83.27416667;Dhaulagiri IV;1970;5;0;Nepal
+99;Diran;7266;23839;1329;4360;Rakaposhi-Haramosh Karakoram;36.12027778;74.66166667;Malubiting;1968;12;8;Pakistan
+100;Labuche Kang III Labuche Kang East;7250;23790;570;1870;Labuche Himalaya;28.30138889;86.38388889;Labuche Himilaya;unclimbed;0;0;China
+101;Putha Hiunchuli;7246;23773;1151;3776;Dhaulagiri Himalaya;28.74777778;83.14611111;Churen Himal;1954;11;5;Nepal
+102;Apsarasas Kangri;7245;23770;607;1991;Siachen Karakoram;35.53861111;77.14861111;Teram Kangri I;1976;2;0;India China
+103;Mukut Parbat;7242;23760;683;2241;Garhwal Himalaya;30.94916667;79.57;Kamet;1951;2;1;India China
+104;Rimo III;7233;23730;613;2011;Rimo Karakoram;35.37527778;77.36166667;Rimo I;1985;1;0;India
+105;Langtang Lirung;7227;23711;1534;5033;Langtang Himalaya;28.25611111;85.51694444;Shishapangma;1978;14;13;Nepal
+106;Karjiang;7221;23691;895;2936;Kula Kangri Himalaya;28.2575;90.64694444;Kula Kangri;unclimbed;0;2;China
+107;Annapurna Dakshin (Annapurna South);7219;23684;769;2523;Annapurna Himalaya;28.51833333;83.80611111;Annapurna;1964;10;16;Nepal
+108;Khartaphu;7213;23665;712;2336;Mahalangur Himalaya;28.06361111;86.9775;Mount Everest;1935;1;0;China
+109;Tongshanjiabu[19];7207;23645;1757;5764;Lunana Himalaya;28.18666667;89.9575;Gangkhar Puensum;unclimbed;0;0;Bhutan China
+110;Malangutti Sar;7207;23645;507;1663;Hispar Karakoram;36.36305556;75.14916667;Distaghil Sar;1985;1;0;Pakistan
+111;Noijin Kangsang Norin Kang;7206;23642;2160;7090;Nagarze Himalaya;28.94666667;90.17833333;Gangkhar Puensum;1986;4;1;China
+112;Langtang Ri;7205;23638;665;2182;Langtang Himalaya;28.38138889;85.68361111;Shishapangma;1981;4;0;Nepal China
+113;Kangphu Kang Shimokangri;7204;23635;1244;4081;Lunana Himalaya;28.15666667;90.07083333;Tongshanjiabu;2002;1;0;Bhutan China
+114;Singhi Kangri;7202;23629;730;2400;Siachen Karakoram;35.59972222;76.98361111;Teram Kangri III;1976;2;0;India China
+115;Lupghar Sar;7200;23600;730;2400;Hispar Karakoram;36.35027778;75.03694444;Momhil Sar;1979;1;0;Pakistan
