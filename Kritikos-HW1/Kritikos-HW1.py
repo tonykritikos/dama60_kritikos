@@ -1,3 +1,6 @@
+from collections import Counter
+
+import pandas as pd
 import math
 import matplotlib.pyplot as plt
 import numpy as np
@@ -7,89 +10,66 @@ from sklearn.metrics.pairwise import euclidean_distances
 
 # Topic 2.a
 
-# Function to calculate Entropy
-def calculate_entropy(probabilities):
-    return -sum(p * math.log2(p) for p in probabilities if p > 0)
+# Create a DataFrame from the given table
+data = {
+    'ID': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+    'Gender': ['male', 'female', 'male', 'male', 'male', 'female', 'female', 'male', 'female', 'female', 'male', 'female', 'female', 'male', 'male', 'male', 'female', 'male', 'male', 'male'],
+    'Region': ['city', 'city', 'countryside', 'countryside', 'city', 'city', 'city', 'city', 'countryside', 'city', 'city', 'city', 'countryside', 'countryside', 'city', 'city', 'city', 'countryside', 'city', 'city'],
+    'Occupation': ['student', 'teacher', 'banker', 'teacher', 'student', 'banker', 'student', 'student', 'teacher', 'student', 'student', 'student', 'banker', 'banker', 'student', 'officer', 'student', 'officer', 'teacher', 'banker'],
+    'Income': ['≤ 9000', '> 21000', '> 21000', '> 21000', '≤ 9000', '9000…21000', '≤ 9000', '≤ 9000', '9000…21000', '≤ 9000', '9000…21000', '9000…21000', '9000…21000', '> 21000', '≤ 9000', '> 21000', '≤ 9000', '> 21000', '9000…21000', '> 21000'],
+    'Has Laptop': ['no', 'no', 'yes', 'no', 'no', 'yes', 'yes', 'yes', 'no', 'yes', 'no', 'yes', 'yes', 'no', 'yes', 'yes', 'yes', 'yes', 'no', 'no']
+}
 
+df = pd.DataFrame(data)
 
-# Function to calculate Information Gain
-def calculate_information_gain(entropy_before, weights, entropies_after):
-    return entropy_before - sum(w * e for w, e in zip(weights, entropies_after))
+# Calculate entropy
+def calculate_entropy(labels):
+    total_samples = len(labels)
+    label_counts = Counter(labels)
+    entropy = 0
 
+    for count in label_counts.values():
+        probability = count / total_samples
+        entropy -= probability * math.log2(probability)
 
-# Function to calculate Split Information
-def calculate_split_information(proportions):
-    return -sum(p * math.log2(p) for p in proportions if p > 0)
+    return entropy
 
+# Calculate information gain, split information, and gain ratio
+def calculate_metrics(attribute, target):
+    # Calculate total entropy
+    total_entropy = calculate_entropy(df[target])
 
-# Function to calculate Gain Ratio
-def calculate_gain_ratio(information_gain, split_information):
-    if split_information == 0:
-        return 0  # Avoid division by zero
-    return information_gain / split_information
+    # Calculate information gain
+    group_entropy = df.groupby(attribute)[target].apply(calculate_entropy)
+    information_gain = total_entropy - sum(group_entropy * (df.groupby(attribute).size() / len(df)))
 
+    # Calculate split information
+    split_info = -sum((df.groupby(attribute).size() / len(df)) * np.log2(df.groupby(attribute).size() / len(df)))
 
-# Given values from the exercise
-split_info_gender = 0.9710
-information_gain_region = 0.0031
-split_info_occupation = 1.8150
-information_gain_income = 0.0458
+    # Calculate gain ratio
+    gain_ratio = information_gain / split_info if split_info != 0 else 0
 
-# Data counts for each attribute
-gender_counts = {'male': 12, 'female': 8}
-region_counts = {'city': 14, 'countryside': 6}
-occupation_counts = {'student': 9, 'teacher': 5, 'banker': 4, 'officer': 2}
-income_counts = {'≤ 9000': 7, '9000…21000': 6, '> 21000': 7}
+    return information_gain, split_info, gain_ratio
 
-# Calculate proportions based on counts
-total_gender = sum(gender_counts.values())
-weights_gender = [count / total_gender for count in gender_counts.values()]
-print(weights_gender)
+# Calculate metrics for each attribute
+attributes = ['Gender', 'Region', 'Occupation', 'Income']
+target_attribute = 'Has Laptop'
 
-total_region = sum(region_counts.values())
-weights_region = [count / total_region for count in region_counts.values()]
-print(weights_region)
-
-total_occupation = sum(occupation_counts.values())
-weights_occupation = [count / total_occupation for count in occupation_counts.values()]
-print(weights_occupation)
-
-total_income = sum(income_counts.values())
-weights_income = [count / total_income for count in income_counts.values()]
-print(weights_income)
-
-# Assuming entropy_before is 1, which is common in decision trees
-entropy_before = 1
-
-# Calculate missing values
-# Gender
-information_gain_gender = calculate_information_gain(entropy_before, weights_gender, [split_info_gender, split_info_gender])
-
-# Region
-split_info_region = calculate_split_information(weights_region)
-
-# Occupation
-information_gain_occupation = calculate_information_gain(entropy_before, weights_occupation, [split_info_occupation, split_info_occupation])
-
-# Income
-gain_ratio_income = calculate_gain_ratio(information_gain_income,
-                                         0.0458)  # Corrected: Use Information Gain, not Split Information
-
-# Displaying the results
-print("Attribute\tInformation Gain\tSplit Information\tGain Ratio")
-print(
-    f"Gender\t\t{round(information_gain_gender, 4)}\t\t{round(split_info_gender, 4)}\t\t{round(information_gain_gender / split_info_gender, 4)}")
-print(
-    f"Region\t\t{round(information_gain_region, 4)}\t\t{round(split_info_region, 4)}\t\t{round(information_gain_region / split_info_region, 4)}")
-print(
-    f"Occupation\t{round(information_gain_occupation, 4)}\t\t{round(split_info_occupation, 4)}\t\t{round(information_gain_occupation / split_info_occupation, 4)}")
-print(f"Income\t\t{round(information_gain_income, 4)}\t\t{0.0458}\t\t{round(gain_ratio_income, 4)}")
+for attribute in attributes:
+    info_gain, split_info, gain_ratio = calculate_metrics(attribute, target_attribute)
+    print(f"\nAttribute: {attribute}")
+    print(f"Information Gain: {info_gain}")
+    print(f"Split Information: {split_info}")
+    print(f"Gain Ratio: {gain_ratio}")
 
 
 
 # Topic 4
 
 
+import numpy as np
+from sklearn.cluster import DBSCAN
+from sklearn.metrics.pairwise import euclidean_distances
 
 # Define the data points
 data = np.array([
@@ -106,14 +86,20 @@ min_samples = 4
 dbscan = DBSCAN(eps=eps, min_samples=min_samples)
 labels = dbscan.fit_predict(data)
 
+# Determine core, border, and noise points
+core_samples = dbscan.core_sample_indices_
+border_points = [i for i in range(len(data)) if i not in core_samples and any(distance_matrix[i, core_samples] <= eps)]
+noise_points = [i for i in range(len(data)) if i not in core_samples and i not in border_points]
+
+
 # Print the labels and type of points for each data point
 point_types = []
 for i, label in enumerate(labels):
-    if label == -1:
+    if i in noise_points:
         point_types.append("N")  # Noise point
-    elif min_samples <= np.sum(labels == label):
+    elif i in core_samples:
         point_types.append("C")  # Core point
-    else:
+    elif i in border_points:
         point_types.append("B")  # Border point
 
     print(f"P{i+1}: Cluster {label}, Type: {point_types[-1]}")
@@ -128,11 +114,3 @@ print(type_matrix)
 
 print("\nCluster Matrix:")
 print(cluster_matrix)
-
-
-# Scatter plot the data points with color based on cluster labels
-plt.scatter(data[:, 0], data[:, 1], c=labels, cmap='viridis', s=50, edgecolors='k')
-plt.title('DBSCAN Clustering')
-plt.xlabel('X-axis')
-plt.ylabel('Y-axis')
-plt.show()
