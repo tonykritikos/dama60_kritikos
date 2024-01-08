@@ -18,7 +18,7 @@ with open("WA2_5.txt") as my_file:
 
 # calculate and print the optimal size of the BF using 
 # the aforementioned formula for the existing configuration:
-size = int(-(1.44 * math.log(error_rate) / math.log(2)))
+size = max_elements * (-1.44 * math.log(error_rate, 2))
 print(size)
 
 # The list of words to check in the BF
