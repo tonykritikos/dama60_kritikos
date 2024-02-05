@@ -149,5 +149,92 @@ def initialize_clusters(points, k):
 initialize_clusters(points, 3)
 
 print("     ")
-print("Exercise 2.c")
+print("Exercise 4.b")
 print("     ")
+
+# Cluster 0
+cluster_0_points = [points['A'], points['G'], points['J'], points['K'], points['L']]
+cluster_0_N = len(cluster_0_points)
+cluster_0_SUM = np.sum(cluster_0_points, axis=0)
+cluster_0_SUMSQ = np.sum(np.square(cluster_0_points), axis=0)
+
+print(f"Cluster 0: N={cluster_0_N}, SUM={cluster_0_SUM}, SUMSQ={cluster_0_SUMSQ}")
+
+# Cluster 1
+cluster_1_points = [points['B'], points['D'], points['E'], points['H']]
+cluster_1_N = len(cluster_1_points)
+cluster_1_SUM = np.sum(cluster_1_points, axis=0)
+cluster_1_SUMSQ = np.sum(np.square(cluster_1_points), axis=0)
+
+print(f"Cluster 1: N={cluster_1_N}, SUM={cluster_1_SUM}, SUMSQ={cluster_1_SUMSQ}")
+
+# Cluster 2
+cluster_2_points = [points['C'], points['F'], points['I']]
+cluster_2_N = len(cluster_2_points)
+cluster_2_SUM = np.sum(cluster_2_points, axis=0)
+cluster_2_SUMSQ = np.sum(np.square(cluster_2_points), axis=0)
+
+print(f"Cluster 2: N={cluster_2_N}, SUM={cluster_2_SUM}, SUMSQ={cluster_2_SUMSQ}")
+
+
+print("     ")
+print("Exercise 4.c")
+print("     ")
+
+
+# Variance and Standard Deviation calculations for each cluster
+def calculate_var_sd(cluster_points, cluster_SUM, cluster_SUMSQ):
+    N = len(cluster_points)
+    variance = (cluster_SUMSQ / N) - np.square(cluster_SUM / N)
+    std_deviation = np.sqrt(variance)
+    return variance, std_deviation
+
+# Cluster 0
+variance_0, sd_0 = calculate_var_sd(cluster_0_points, cluster_0_SUM, cluster_0_SUMSQ)
+
+# Cluster 1
+variance_1, sd_1 = calculate_var_sd(cluster_1_points, cluster_1_SUM, cluster_1_SUMSQ)
+
+# Cluster 2
+variance_2, sd_2 = calculate_var_sd(cluster_2_points, cluster_2_SUM, cluster_2_SUMSQ)
+
+# Print the results with 3 decimal digits
+print(f"Cluster 0: Variance=({variance_0[0]:.3f}, {variance_0[1]:.3f}), SD=({sd_0[0]:.3f}, {sd_0[1]:.3f})")
+print(f"Cluster 1: Variance=({variance_1[0]:.3f}, {variance_1[1]:.3f}), SD=({sd_1[0]:.3f}, {sd_1[1]:.3f})")
+print(f"Cluster 2: Variance=({variance_2[0]:.3f}, {variance_2[1]:.3f}), SD=({sd_2[0]:.3f}, {sd_2[1]:.3f})")
+
+
+print("     ")
+print("Exercise 4.c")
+print("     ")
+
+from scipy.spatial.distance import mahalanobis
+
+# Given points
+points_M = np.array([6, 8])
+points_N = np.array([2, 2])
+points_P = np.array([6, 5])
+
+# Calculate Mahalanobis Distance for each point and each cluster
+mahalanobis_distances = {
+    'M': [mahalanobis(points_M, centroid, np.linalg.inv(np.cov(np.array(cluster_points).T))) for centroid, cluster_points in zip([cluster_0_SUM / cluster_0_N, cluster_1_SUM / cluster_1_N, cluster_2_SUM / cluster_2_N], [cluster_0_points, cluster_1_points, cluster_2_points])],
+    'N': [mahalanobis(points_N, centroid, np.linalg.inv(np.cov(np.array(cluster_points).T))) for centroid, cluster_points in zip([cluster_0_SUM / cluster_0_N, cluster_1_SUM / cluster_1_N, cluster_2_SUM / cluster_2_N], [cluster_0_points, cluster_1_points, cluster_2_points])],
+    'P': [mahalanobis(points_P, centroid, np.linalg.inv(np.cov(np.array(cluster_points).T))) for centroid, cluster_points in zip([cluster_0_SUM / cluster_0_N, cluster_1_SUM / cluster_1_N, cluster_2_SUM / cluster_2_N], [cluster_0_points, cluster_1_points, cluster_2_points])]
+}
+
+# Assign points to clusters or Retained Set
+assignments = {}
+for point_name, distances in mahalanobis_distances.items():
+    min_distance_idx = np.argmin(distances)
+    min_distance = distances[min_distance_idx]
+    cluster_std_deviation = [sd_0, sd_1, sd_2][min_distance_idx]
+
+    if np.all(min_distance < 2 * cluster_std_deviation):
+        assignments[point_name] = f'Cluster {min_distance_idx}'
+    else:
+        assignments[point_name] = 'Retained Set'
+
+# Print assignments
+print("Assignments:")
+for point_name, assignment in assignments.items():
+    print(f"{point_name}: {assignment}")
