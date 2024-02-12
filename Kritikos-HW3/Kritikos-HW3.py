@@ -1,5 +1,289 @@
 import numpy as np
 
+import numpy as np
+
+print("     ")
+print("Quiz Q2")
+print("     ")
+
+# Define the transition matrix of the graph
+transition_matrix = np.array([
+    [0, 1/3, 1/3, 1/3],  # A transitions to B, C, D
+    [1/2, 0, 0, 1/2],    # B transitions to A, D
+    [1, 0, 0, 0],        # C transitions to A
+    [0, 1/2, 1/2, 0]     # D transitions to B, C
+])
+
+# Define the starting probability vector (starting at Node A)
+start_vector = np.array([1, 0, 0, 0])
+
+# Perform three iterations to compute the probability of reaching each node
+final_vector = np.linalg.matrix_power(transition_matrix, 3) @ start_vector
+
+# The probability of reaching Node C after three steps is the third element of the final vector
+probability_of_reaching_C = final_vector[2]
+
+print("Probability of reaching Node C after three steps:", probability_of_reaching_C)
+
+
+print("     ")
+print("Quiz Q3")
+print("     ")
+
+import numpy as np
+
+# Define the number of nodes
+num_nodes = 4
+
+# Initialize PageRank scores
+page_rank = np.zeros(num_nodes)
+
+# Convergence threshold
+threshold = 1e-8
+
+# Iterate until convergence
+iteration = 0
+while True:
+	new_page_rank = np.zeros(num_nodes)
+	for i in range(1, num_nodes - 1):
+		new_page_rank[i] = (page_rank[i - 1] + page_rank[i + 1]) / 2
+
+	# Check for convergence
+	if np.max(np.abs(new_page_rank - page_rank)) < threshold:
+		break
+
+	page_rank = new_page_rank
+	iteration += 1
+
+print("Convergence iteration:", iteration)
+
+print("     ")
+print("Quiz Q4")
+print("     ")
+
+import numpy as np
+
+# Define the teleportation factor (beta)
+beta = 0.9
+
+# Define the graph as a dictionary of outgoing links for each page
+graph = {
+    'A': ['B', 'C', 'D'],
+    'B': ['A', 'D'],
+    'C': ['A'],
+    'D': ['B', 'C']
+}
+
+# Total number of pages
+num_pages = len(graph)
+
+# Initialize the PageRank scores
+page_rank = {page: 1/num_pages for page in graph}
+
+# Calculate the PageRank scores after the first iteration
+new_page_rank = {}
+for page in graph:
+    new_page_rank[page] = (1 - beta) / num_pages  # Teleportation component
+    for neighbor in graph:
+        if page in graph[neighbor]:
+            new_page_rank[page] += beta * page_rank[neighbor] / len(graph[neighbor])
+
+# Print the distribution of the surfer's location after the first iteration
+for page, score in new_page_rank.items():
+    print(f"Page {page}: {score:.3f}")
+
+
+
+print("     ")
+print("Quiz Q5")
+print("     ")
+
+# Define the directed edges
+edges = [
+    ('A', 'B'),
+    ('A', 'C'),
+    ('B', 'C'),
+    ('C', 'D'),
+    ('D', 'E'),
+    ('E', 'A'),
+    ('E', 'D')
+]
+
+# Define the vertices
+vertices = ['A', 'B', 'C', 'D', 'E']
+
+# Initialize the transition matrix with zeros
+transition_matrix = np.zeros((len(vertices), len(vertices)))
+
+# Construct the transition matrix
+for start, end in edges:
+	start_index = vertices.index(start)
+	end_index = vertices.index(end)
+	transition_matrix[start_index][end_index] = 1 / len([e for e in edges if e[0] == start])
+
+# Calculate the maximum sum of column elements
+max_sum = np.max(np.sum(transition_matrix, axis=0))
+
+print("Row stochastic transition matrix:")
+print(transition_matrix)
+print("Maximum sum of the elements among the columns:", max_sum)
+
+
+print("     ")
+print("Quiz Q6")
+print("     ")
+
+import numpy as np
+
+# Define the point
+y = np.array([1, -3, 4])
+
+# Define the inverse covariance matrix
+S_inv = np.diag([1/4, 1/9, 1/25])
+
+# Calculate the Mahalanobis distance
+mahalanobis_distance = np.sqrt(np.dot(y.T, np.dot(S_inv, y)))
+
+print("Mahalanobis distance:", mahalanobis_distance)
+
+print("     ")
+print("Quiz Q7")
+print("     ")
+
+from itertools import combinations
+
+# Define baskets
+baskets = [
+    {1, 2, 3},
+    {2, 3, 4},
+    {1, 2, 4},
+    {1, 3, 4},
+    {1, 3, 5},
+    {2, 3, 5},
+    {2, 4, 5}
+]
+
+# Define hash function
+def h(i, j):
+    return (i * j) % 7
+
+# Define support threshold
+support_threshold = 3
+
+# Initialize hash table for buckets
+bucket_counts = [0] * 7
+
+# Count pairs that collide in the buckets
+for basket in baskets:
+    for pair in combinations(basket, 2):
+        hashed_pair = h(*pair)
+        bucket_counts[hashed_pair] += 1
+
+# Check which pairs are frequent for the second pass
+frequent_pairs = []
+for i in range(len(bucket_counts)):
+    if bucket_counts[i] >= support_threshold:
+        for j in range(i + 1, len(bucket_counts)):
+            if bucket_counts[j] >= support_threshold:
+                frequent_pairs.append((i, j))
+
+print("Frequent pairs for the second pass:", frequent_pairs)
+# Find the index of the most frequent bucket
+most_frequent_bucket_index = max(range(len(bucket_counts)), key=bucket_counts.__getitem__)
+
+print("Most frequent bucket index:", most_frequent_bucket_index)
+# Find the index of the second most frequent bucket
+second_most_frequent_bucket_index = max(range(len(bucket_counts)), key=lambda i: bucket_counts[i] if i != most_frequent_bucket_index else -1)
+
+print("Second most frequent bucket index:", second_most_frequent_bucket_index)
+
+
+
+
+print("     ")
+print("Quiz Q8")
+print("     ")
+
+import networkx as nx
+
+# Create a directed graph
+G = nx.DiGraph()
+
+# Add edges to the graph
+G.add_edges_from([(1, 2), (1, 3), (2, 3), (2, 4), (4, 3)])
+
+# Run HITS algorithm for 2 iterations
+hits_scores = nx.hits(G, max_iter=2)
+
+# Print the hubbiness scores of each node
+print("Hubbiness scores after 2 iterations:")
+print(hits_scores[0])
+
+# Print the authority scores of each node
+print("Authority scores after 2 iterations:")
+print(hits_scores[1])
+
+
+print("     ")
+print("Quiz Q9")
+print("     ")
+
+import networkx as nx
+
+# Create a directed graph
+G = nx.DiGraph()
+
+# Add edges to the graph
+edges = [('a', 'b'), ('a', 'd'), ('b', 'd'), ('c', 'b'), ('d', 'e'), ('e', 'f'), ('f', 'b'), ('f', 'c')]
+G.add_edges_from(edges)
+
+# Calculate PageRank scores
+pagerank_scores = nx.pagerank(G)
+
+# Find the node with the smallest PageRank score
+smallest_node = min(pagerank_scores, key=pagerank_scores.get)
+
+print("PageRank scores:")
+print(pagerank_scores)
+print("Node with the smallest PageRank score:", smallest_node)
+
+
+print("     ")
+print("Quiz Q10")
+print("     ")
+
+from itertools import combinations
+
+# Transactional database
+transactions = [
+    ('a', 'b'),
+    ('a', 'b', 'e'),
+    ('b', 'c'),
+    ('b', 'c', 'd'),
+    ('a', 'c', 'e')
+]
+
+# Extract all pairs of items
+pairs = []
+for transaction in transactions:
+    pairs.extend(combinations(sorted(transaction), 2))
+
+# Count the occurrences of each pair
+pair_counts = {}
+for pair in pairs:
+    pair_counts[pair] = pair_counts.get(pair, 0) + 1
+
+# Calculate the number of unique pairs
+num_unique_pairs = len(pair_counts)
+
+print("Unique pairs:", num_unique_pairs)
+
+
+print("     ")
+print("Exercise 2.c")
+print("     ")
+
+
 # Define the transition matrix M
 M = np.array([
 	[0, 0, 1, 0, 0.5],
@@ -14,10 +298,6 @@ v = np.ones(M.shape[0]) / M.shape[0]
 
 # Number of iterations (adjust as needed)
 num_iterations = 2
-
-print("     ")
-print("Exercise 2.c")
-print("     ")
 
 # Perform iterations
 for _ in range(num_iterations):
