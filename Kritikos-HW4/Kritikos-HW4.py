@@ -69,7 +69,7 @@ print(" ")
 import numpy as np
 
 # Actual and predicted ratings
-actual_ratings = np.array([[5, 4, 4, 5, np.nan],
+actual_ratings = np.array([[5, np.nan, 4, 4, 5 ],
                            [4.5, 4, 3, 4.5, np.nan],
                            [np.nan, 5, 3, 4, 3]])
 
