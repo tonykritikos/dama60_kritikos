@@ -14,13 +14,12 @@ import pandas as pd
 from sklearn.model_selection import train_test_split 
 from sklearn.preprocessing import StandardScaler
 import warnings
-warnings.filterwarnings("ignore")
 
+warnings.filterwarnings("ignore")
 
 # read the data and print some basic information
 df = pd.read_csv('Dataset.csv')
 print('Typical statistical information of the used data: \n\n ', df.describe(), sep='')
-
 
 # keep the first 2 numeric columns as the feature space of the input
 # and use the last one as the target variable (discrete)
@@ -41,11 +40,11 @@ for i in y:
     else:
         count_class_1 += 1
 
-print('\n\nNumber of instances for class0: {:3} and class1: {:3}'.format(?1 , ?2))
+print('\n\nNumber of instances for class0: {:3} and class1: {:3}'.format(count_class_0, count_class_1))
 
 # verify that the sum of the values of the above 2 counters 
 # equals to the total number of dataset's instances 
-assert count_class_0 + count_class_1 == X.?3
+assert count_class_0 + count_class_1 == X.shape[0]
 
 ###############################################
 # Topic 5b
@@ -72,7 +71,7 @@ number_of_features = X_train.shape[1]   # the number of columns of the training 
 network_params = {}                     
 
 # initialize the input layer coefficients as zeros (vector with dimension (number of features,))
-network_params["W"] = ?1(number_of_features)
+network_params["W"] = np.zeros(number_of_features)
 
 # initialize the bias as 0 (scalar)
 network_params["b"] = 0                       
@@ -88,10 +87,10 @@ for iteration in range(n_iter):
     logits = np.dot(X_train, network_params['W']) + network_params['b']
     
     # apply the sigmoid function for transforming logits to probabilities
-    prob = ?2
+    prob = 1 / (1 + np.exp(-logits))
     
     # calculate the sum of loss for all instances based on the binary cross entropy function
-    loss = np.sum(y_train * np.log(prob) + ?3 ) 
+    loss = np.sum(y_train * np.log(prob) + (1 - y_train) * np.log(1 - prob))
 
     # average the loss with the number of training instances
     loss = -1/m * loss  
@@ -99,8 +98,8 @@ for iteration in range(n_iter):
     # add the loss of each iteration into a list
     losses.append(loss)
 
-    # partial derivative of loss function with respect to weights 
-    dloss_dW = 1/m * np.dot(?4, (prob - y_train))
+    # partial derivative of loss function with respect to weights
+    dloss_dW = 1 / m * np.dot(X_train.T, (prob - y_train))
 
     # partial derivative of loss function with respect to bias 
     dloss_db = 1/m * np.sum(prob - y_train)
@@ -128,10 +127,10 @@ print('\n\nOptimized parameters: \nW = ', np.round(network_params['W'],3),\
 logits_test_set = np.dot(X_test, network_params["W"]) + network_params["b"]
 
 # apply the sigmoid activation function on logits for transforming them to probabilities
-prob_test_set = ?1
+prob_test_set = 1 / (1 + np.exp(-logits_test_set))
 
 # measure the classification accuracy on the test subset (this should be a number in range [0,1])
 y_pred = prob_test_set >= 0.5
 y_pred = y_pred.astype("int")
 print('\n\nClassification Accuracy (test subset) ={:6}'.\
-          format(np.round(np.count_nonzero( ?2 ) /n, 3)))
+      format(np.round(np.count_nonzero(y_pred == y_test) / n, 3)))
